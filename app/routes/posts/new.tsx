@@ -1,17 +1,20 @@
 import { Link, redirect, ActionFunction } from "remix";
+import { db } from "~/utils/db.server";
 import { ErrorBoundaryProps } from "~/types/props";
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
-  const title = form.get("title");
-  const body = form.get("body");
+  const title = form.get("title") as string;
+  const body = form.get("body") as string;
   const fields = { title, body };
-  console.log({ fields });
+
+  const post = await db.post.create({ data: fields });
+  console.log({ fields, post });
   console.log("redireted");
 
   // @todo - submit to database
 
-  // return redirect("/posts");
+  return redirect(`/posts/${post.id}`);
 };
 
 function NewPost() {
@@ -41,7 +44,5 @@ function NewPost() {
     </>
   );
 }
-
-
 
 export default NewPost;
