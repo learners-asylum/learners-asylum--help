@@ -22,7 +22,7 @@ export const meta = () => {
 
 export default function App() {
   return (
-    <Document title="My Remix Blog">
+    <Document title="The Saga Beings">
       <Layout>
         <Outlet />
       </Layout>
@@ -37,6 +37,7 @@ function Document({ children, title }: TitledWrapperProps) {
         <Meta />
         <Links />
         <link rel="stylesheet" href={globalStylesUrl} />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <title>{title}</title>
       </head>
       <body>

@@ -1,18 +1,11 @@
+import hideThePainHaroldSrc from "~/assets/hide-the-pain-harold.jpg";
+
 function Home() {
   return (
     <div>
-      <h1>Fine, welcome to Remix</h1>
-      <div>
-        <p>
-          Remix is a convenient, full stack web framework made by the creators
-          of react router.
-        </p>
-        <p>
-          This simple blog app is being built by following Brad Traversy of
-          TraversyMedia, and is being built with subtle differences and could be
-          used as a starting point in future development
-        </p>
-      </div>
+      <h1>Learner's Asylum: Help</h1>
+      <p>Ever Wondered What Chronic Pain Can Do To You?</p>
+      <img src={hideThePainHaroldSrc} alt="Hide The Pain Harold" />
     </div>
   );
 }
