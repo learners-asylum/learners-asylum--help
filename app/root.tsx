@@ -1,5 +1,9 @@
 import { Outlet, LiveReload, Link, Links, Meta } from "remix";
-import { TitledWrapperProps, WrapperProps } from "~/types/props";
+import {
+  TitledWrapperProps,
+  WrapperProps,
+  ErrorBoundaryProps,
+} from "~/types/props";
 import ROUTES from "~/constants/routes";
 import globalStylesUrl from "~/styles/global.css";
 
@@ -59,5 +63,16 @@ function Layout({ children }: WrapperProps) {
 
       <div className="container">{children}</div>
     </>
+  );
+}
+
+export function ErrorBoundary({ error }: ErrorBoundaryProps) {
+  return (
+    <Document title="Error Encountered">
+      <Layout>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+      </Layout>
+    </Document>
   );
 }
